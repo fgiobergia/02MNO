@@ -1,6 +1,6 @@
 /*
  * fatto solo con i puntatori,
- * con le stringhe decisamente
+ * con la matrice decisamente
  * non ne avevo voglia :-)
  */
 
