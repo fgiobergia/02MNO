@@ -60,33 +60,31 @@ void bubble_sort (int *x, int n) {
 }
 				
 
-float run_time (void(*sort)(int*,int), int *x, int n, int m) {
+float run_time (void(*sort)(int*,int), int n, int m) {
 	clock_t a,b;
 	int i,*t;
-	t = malloc (n*sizeof(int));
 	a = clock ();
 	for (i=0;i<m;i++) {
-		memcpy (t,x,n*sizeof(int));
+		t = rand_array (n);
 		(*sort)(t,n);
+		free (t);
 	}
 	b = clock ();
-	free (t);
 	return (float)(b-a)/CLOCKS_PER_SEC;
 }
 
 /* usage: ./es01 <N> <M> */
 int main (int argc, char *argv[]) {
-	int *x,m,n;
+	int m,n;
 	if (argc!=3) {
 		return 0;
 	}
 	n = atoi (argv[1]);
 	m = atoi (argv[2]);
-	x = rand_array (n);
 	printf ("N: %d, M: %d\n",n,m);
-	printf ("Insertion sort: %.3f\n",run_time(insertion_sort,x,n,m));
-	printf ("Selection sort: %.3f\n",run_time(selection_sort,x,n,m));
-	printf ("Bubble sort:    %.3f\n",run_time(bubble_sort,x,n,m));
+	printf ("Insertion sort: %.3f\n",run_time(insertion_sort,n,m));
+	printf ("Selection sort: %.3f\n",run_time(selection_sort,n,m));
+	printf ("Bubble sort:    %.3f\n",run_time(bubble_sort,n,m));
 	return 0;
 }
 
