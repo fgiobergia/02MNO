@@ -33,7 +33,8 @@ int main () {
 	while (fgets (line,sizeof(line),fp)) {
 		m = realloc (m, ++i*sizeof(char*));
 		m[i-1]=malloc(strlen(line));
-		strncpy (m[i-1],line,strlen(line)-1);
+		line[strlen(line)-1]=0;
+		strcpy (m[i-1],line);
 	}
 	insertion_sort_string (m,i);
 	for (d=0;d<i;d++) {
