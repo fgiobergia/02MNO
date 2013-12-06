@@ -54,9 +54,6 @@ int next_number (int **sudoku, int i, int d, int side) {
 }
 
 int main (int argc, char *argv[1]) {
-/*	int m[9][9] = {
-			};
-*/
 	int **v,i,n,d;
 	FILE *fp;
 	char line[256];
