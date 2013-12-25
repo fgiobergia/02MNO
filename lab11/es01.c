@@ -2,6 +2,12 @@
 #include "Graph.h"
 #include "Table.h"
 
+/*
+ * The input file contains, on the
+ * first line, the number of airports.
+ * The following lines contain every
+ * flight's infos.
+ */
 #define	IN	"input.txt"
 
 void visit_graph (Graph g, int origin, int node, int *visited, Table t) {
